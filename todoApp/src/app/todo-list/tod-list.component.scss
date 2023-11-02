@@ -1,0 +1,30 @@
+.task-item {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    margin: 15px 0;
+}
+
+.task-title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.task-details {
+    font-size: 16px;
+}
+
+.completed {
+    color: #28a745;
+    background: rgba(40, 167, 70, 0.1);
+    display: inline;
+    padding: 4px 6px;
+}
+
+.not-completed {
+    color: #dc3545;
+    background-color: rgba(220, 53, 70, 0.1);
+    display: inline;
+    padding: 4px 6px;
+}
