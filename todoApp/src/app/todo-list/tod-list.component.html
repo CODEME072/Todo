@@ -1,0 +1,35 @@
+<div class="container">
+    <h1>All todos</h1>
+    <div class="row">
+        <div class="col-12" *ngFor="let data of allTodos;let i = index">
+
+            <div class="card mb-3 shadow-sm ">
+                <div class="card-body">
+                   <div class="row">
+                    <div class="col">
+                        <h3 class="card-title h3">{{data.task}}</h3>
+                        <p class="lead">{{data.notes}}</p>
+                        <div><i class="bi bi-grid"></i> {{data.category | titlecase }}</div>
+                        <div class=""><i class="bi bi-person-lines-fill"></i> {{data.assignee}}</div>
+                    </div>
+                    <div class="col">
+                    <div class="">Priority:  <span [ngClass]="{'text-danger':data.priority==='high', 'text-warning':data.priority==='medium', 'text-success':data.priority==='low'}">{{data.priority | titlecase }}</span></div>
+                    <div class="">Due Date: {{data.dueDate | date:"dd MMMM y"}}</div>
+                   </div>
+                </div>
+    
+                    <div class="row">
+                    
+                       <div class="col mt-2"> <span  [ngClass]="{'completed':data.completed, 'not-completed':!data.completed}"><i [ngClass]="{'bi bi-check2-circle':data.completed, 'bi bi-x-circle':!data.completed} " class="bi bi-check-circle"></i> {{data.completed?"Completed":"Not Completed"}} </span></div>
+                        <div class="col d-flex  justify-content-around">
+                            <button class="btn btn-outline-primary"><i class="bi bi-pencil-square"></i> Update</button>
+                            <button class="btn btn-outline-danger"><i class="bi bi-trash-fill"></i> Delete</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+  
+</div>
