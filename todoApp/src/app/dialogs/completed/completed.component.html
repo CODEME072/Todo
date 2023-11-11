@@ -1,0 +1,10 @@
+<div class="container text-center mt-5">
+    <div class="h4">Have you completed this task?</div>
+    <p>If Yes, go ahead otherwise, click "Not yet" button </p>
+    <div mat-dialog-actions>
+        <div class="d-flex justify-content-around">
+            <button class="btn btn-light" (click)="notYet()">Not yet</button>
+        <button class="btn btn-outline-primary"  cdkFocusInitial (click)="updateCompleted()">Completed</button>
+        </div>
+    </div>
+</div>

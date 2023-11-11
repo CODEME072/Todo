@@ -1,0 +1,13 @@
+<div class="container text-center">
+    <div class="p-3">
+        <h3 class="h4">Are you sure to delete?</h3>
+        <strong>{{data.title}}</strong>
+       
+    </div>
+    <div>
+        <div class="row">
+            <div class="col"><button class="btn btn-light" (click)="closeDialog()">Close it</button></div>
+            <div class="col"><button class="btn btn-outline-danger" (click)="deleteIt()">Yes, delete it</button></div>
+        </div>
+    </div>
+</div>

@@ -1,5 +1,11 @@
-<div class="container">
-    <h1>All todos</h1>
+<div class="container mt-2">
+    <div class="h2">All todos</div>
+    <div class="card no-content shadow text-center text-muted" *ngIf="noContent">
+        <div class="card-body">
+            <div class="h1">No Content Found</div>
+            <p>Try other filters</p>
+        </div>
+    </div>
     <div class="row">
         <div class="col-12" *ngFor="let data of allTodos;let i = index">
 
@@ -22,8 +28,12 @@
                     
                        <div class="col mt-2"> <span  [ngClass]="{'completed':data.completed, 'not-completed':!data.completed}"><i [ngClass]="{'bi bi-check2-circle':data.completed, 'bi bi-x-circle':!data.completed} " class="bi bi-check-circle"></i> {{data.completed?"Completed":"Not Completed"}} </span></div>
                         <div class="col d-flex  justify-content-around">
-                            <button class="btn btn-outline-primary"><i class="bi bi-pencil-square"></i> Update</button>
-                            <button class="btn btn-outline-danger"><i class="bi bi-trash-fill"></i> Delete</button>
+                            <div class="btn" *ngIf="!data.completed"
+                                 (click)="markItCompleted(data.id)">
+                                Mark as  Completed
+                              </div>
+                            <button class="btn btn-outline-primary" (click)="updateTodo(data)"><i class="bi bi-pencil-square"></i> edit</button>
+                            <button class="btn btn-outline-danger" (click)="deleteTodo(data.id,data.task)"><i class="bi bi-trash-fill"></i> Delete</button>
                         </div>
                     </div>
                 </div>

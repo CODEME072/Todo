@@ -1,0 +1,41 @@
+<div class="container mt-2">
+    <div class="h3">Enter All Details</div>
+    <form [formGroup]="taskForm">
+        <div class="form-check mb-3">
+            <label for="name" class="form-label">Your name</label>
+            <input type="email" class="form-control" id="name" placeholder="Enter your name" formControlName="assignee" required>
+        </div>
+        <div class="form-check mb-3">
+            <label for="taskname" class="form-label">Task Name</label>
+            <input type="text" class="form-control" id="taskname" placeholder="Enter Task Name" formControlName="taskName" required>
+        </div>
+        <div class="form-check mb-3">
+            <label for="notes" class="form-label">Notes</label>
+            <input type="text" class="form-control" id="notes" placeholder="Enter notes" formControlName="notes" required>
+        </div>
+        <div class="form-check row d-flex justify-content-around mb-3">
+            <div class="col"> <mat-form-field>
+                    <mat-label>Priorities level</mat-label>
+                    <mat-select formControlName="priority" required>
+                        <mat-option value="{{priority}}" *ngFor="let priority of priorities">{{priority | titlecase}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field></div>
+            <div class="col">
+                <mat-form-field>
+                    <mat-label>Choose Category</mat-label>
+                    <mat-select formControlName="category" required>
+                        <mat-option value="{{category}}" *ngFor="let category of categories">{{category | titlecase}}
+                        </mat-option>
+
+                    </mat-select>
+                </mat-form-field>
+            </div>
+
+        </div>
+    </form>
+    <div mat-dialog-actions class="d-flex justify-content-around">
+        <button class="btn btn-light" (click)="closeDialog()">Close it</button>
+        <button type="submit" class="btn btn-outline-primary">Update it</button>
+    </div>
+</div>

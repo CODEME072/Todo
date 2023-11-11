@@ -1,0 +1,74 @@
+<div class="container mt-2">
+  
+ <div>
+  <span class="h3">Actions</span>
+   <button class="btn btn-primary" style="float:right"><i class="bi bi-plus-circle-fill"></i> <span class="ps-1">New Todo</span></button>
+   <hr>
+ </div>
+  
+  <div>
+    <strong>Filter:</strong>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="filter" (click)="allData()" id="all" checked>
+      <label class="form-check-label" for="all">
+        All <span *ngIf="totalTodoLen">({{totalTodoLen}})</span>
+      </label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="filter" (click)="filterTodos(true, 'comp')" id="completed">
+      <label class="form-check-label" for="completed">
+        Completed
+      </label>
+      <div class="ps-4 mt-1" *ngIf="afterFilter1">
+        <input class="form-check-input" type="checkbox" (click)="toggle('comp')" id="self1">
+        <label class="form-check-label" for="self1">
+          Self
+        </label>
+        <br>
+        <div class="ps-2" *ngIf="afterFilter1 && prioritySelect1">
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" name="priority" type="radio" id="compLow" (click)="filterOnPriority('low')">
+            <label class="form-check-label" for="compLow">Low</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" name="priority" type="radio" id="compMedium" (click)="filterOnPriority('medium')">
+            <label class="form-check-label" for="compMedium">Medium</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" name="priority" type="radio" id="compHigh" (click)="filterOnPriority('high')">
+            <label class="form-check-label" for="compHigh">High</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="filter" (click)="filterTodos(false, 'notComp')"
+        id="notCompleted">
+      <label class="form-check-label" for="notCompleted">
+        Not Completed
+      </label>
+      <div class="ps-4 mt-1" *ngIf="afterFilter2">
+        <input class="form-check-input" type="checkbox" (click)="toggle('notComp')" id="self2">
+        <label class="form-check-label" for="self2">
+          Self
+        </label>
+        <br>
+        <div class="ps-2" *ngIf="afterFilter2 && prioritySelect2">
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" name="priority1" type="radio" id="notCompLow" (click)="filterOnPriority('low')">
+            <label class="form-check-label" for="notCompLow">Low</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" name="priority1" type="radio" id="notCompMedium" (click)="filterOnPriority('medium')">
+            <label class="form-check-label" for="notCompMedium">Medium</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" name="priority1" type="radio" id="notCompHigh" (click)="filterOnPriority('high')">
+            <label class="form-check-label" for="notCompHigh">High</label>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
